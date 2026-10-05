@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roziboy — Web & Graphic Designer</title>
+<style>
+:root{--bg:#050b1f;--line:#1e3272;--tx:#e8eeff;--mut:#8da0d6;--a:#4d8dff;--b:#7c5cff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%;background:var(--bg);color:var(--tx);font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif;overflow-x:hidden}
+body{background:radial-gradient(1200px 700px at 50% -10%,#10285f 0,var(--bg) 60%)}
+button{font-family:inherit}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.42;z-index:0;animation:float 14s ease-in-out infinite}
+.o1{width:420px;height:420px;background:#2457ff;top:-120px;left:-100px}.o2{width:380px;height:380px;background:#7c5cff;bottom:-120px;right:-80px;animation-delay:-6s}
+.grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(circle at 50% 40%,#000 20%,transparent 75%)}
+.glow{position:fixed;width:360px;height:360px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,#4d8dff30,transparent 65%);transform:translate(-50%,-50%);transition:left .15s,top .15s}
+@keyframes float{50%{transform:translate(40px,30px) scale(1.12)}}
+@keyframes rise{from{opacity:0;transform:translateY(34px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes letter{from{opacity:0;transform:translateY(80px) rotate(10deg);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #4d8dff77}100%{box-shadow:0 0 0 24px #4d8dff00}}
+@keyframes shine{to{background-position:200% center}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes word{0%{opacity:0;transform:translateY(16px)}15%,85%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-16px)}}
+@keyframes wipe{0%{transform:translateY(100%)}45%,55%{transform:none}100%{transform:translateY(-100%)}}
+@keyframes bob{50%{transform:translateY(8px)}}
+@keyframes fade{from{opacity:0}}
+.wrap{position:relative;z-index:2;min-height:100vh;max-width:1080px;margin:0 auto;padding:28px 22px 80px}
+.page{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.welcome{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px}
+.ring{position:absolute;width:min(560px,92vw);aspect-ratio:1;border-radius:50%;background:conic-gradient(from 0deg,transparent 0,#4d8dff 18%,transparent 40%,#7c5cff 70%,transparent 90%);-webkit-mask:radial-gradient(circle,transparent 66%,#000 67%,#000 68.5%,transparent 69.5%);mask:radial-gradient(circle,transparent 66%,#000 67%,#000 68.5%,transparent 69.5%);animation:spin 9s linear infinite;opacity:.8}
+.ring.r2{width:min(420px,72vw);animation-duration:14s;animation-direction:reverse;opacity:.5}
+.hi{color:var(--mut);letter-spacing:.45em;font-size:.78rem;text-transform:uppercase;animation:rise 1s .2s both}
+.big{font-size:clamp(3rem,14vw,8.5rem);font-weight:700;letter-spacing:-.045em;line-height:1;display:flex;flex-wrap:wrap;justify-content:center}
+.big span{display:inline-block;background:linear-gradient(90deg,#fff,#7fb0ff,#a48bff,#fff);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:letter 1s cubic-bezier(.2,.8,.2,1) both,shine 6s linear infinite}
+.roles{height:1.7em;font-size:clamp(1.05rem,3vw,1.5rem);color:#b9c8f5;overflow:hidden;animation:rise 1s 1.1s both}
+.roles b{display:block;font-weight:500;animation:word 2.4s both}
+.cta{position:relative;margin-top:14px;padding:17px 42px;border-radius:99px;border:1px solid #7fb0ff88;background:linear-gradient(135deg,#2457ff,#6a4dff);color:#fff;font-size:1rem;font-weight:600;cursor:pointer;overflow:hidden;animation:rise 1s 1.4s both,pulse 2s 2.4s infinite;transition:transform .2s}
+.cta::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,#ffffff55,transparent);transform:skewX(-20deg);transition:left .7s}
+.cta:hover::after{left:140%}
+.scroll{position:absolute;bottom:26px;color:var(--mut);font-size:.75rem;letter-spacing:.3em;animation:bob 1.8s infinite,rise 1s 2s both}
+.curtain{position:fixed;inset:0;z-index:99;background:linear-gradient(135deg,#0a1f5c,#4d3dbb);animation:wipe 1.3s cubic-bezier(.7,0,.3,1) both;pointer-events:none}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:46px}
+.logo{font-weight:700;letter-spacing:-.02em;font-size:1.2rem}.logo i{color:var(--a);font-style:normal}
+.back{background:#ffffff0d;border:1px solid var(--line);color:var(--tx);padding:10px 18px;border-radius:99px;cursor:pointer;transition:.25s}
+.back:hover{background:var(--a);border-color:var(--a);transform:translateX(-4px)}
+h1.t{font-size:clamp(2rem,6vw,3.6rem);letter-spacing:-.03em;margin-bottom:10px}
+.sub{color:var(--mut);margin-bottom:26px;max-width:520px;line-height:1.6}
+.menu{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.tile{position:relative;overflow:hidden;text-align:left;padding:30px 26px 26px;min-height:230px;border-radius:22px;background:linear-gradient(160deg,#102252,#0a1636);border:1px solid var(--line);color:var(--tx);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;animation:rise .8s both}
+.tile:nth-child(2){animation-delay:.12s}.tile:nth-child(3){animation-delay:.24s}
+.tile::before{content:"";position:absolute;inset:-60% -20% auto auto;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,#4d8dff55,transparent 70%);transition:.5s}
+.tile:hover{transform:translateY(-8px);border-color:var(--a);box-shadow:0 24px 60px -20px #2457ffaa}.tile:hover::before{transform:scale(1.6)}
+.tile .n{color:var(--a);font-size:.85rem;letter-spacing:.2em}.tile h2{font-size:1.7rem;letter-spacing:-.02em;margin:6px 0 4px}.tile p{color:var(--mut);font-size:.95rem}
+.tile .ar{position:absolute;right:22px;top:22px;font-size:1.5rem;transition:.3s}.tile:hover .ar{transform:translate(6px,-6px);color:var(--a)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.chip{padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:#ffffff08;color:var(--mut);cursor:pointer;transition:.25s}
+.chip:hover{color:var(--tx);border-color:var(--a)}.chip.on{background:linear-gradient(135deg,#2457ff,#6a4dff);color:#fff;border-color:transparent}
+.gal{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.work{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;animation:rise .7s both;transition:transform .2s ease-out,box-shadow .3s;transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.work:hover{box-shadow:0 26px 60px -24px #4d8dffaa}
+.work img,.art{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}.work:hover img,.work:hover .art{transform:scale(1.08)}
+.art{display:flex;align-items:flex-end;padding:18px;font-weight:700;font-size:1.25rem;color:#ffffffcc}
+.cap{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(transparent,#030818ee);transform:translateY(40%);opacity:0;transition:.35s}
+.work:hover .cap{transform:none;opacity:1}.cap b{display:block}.cap small{color:var(--mut)}
+.del{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;border:0;background:#ff4d6acc;color:#fff;cursor:pointer;opacity:0;transition:.3s;z-index:3}.work:hover .del{opacity:1}
+.empty{color:var(--mut);padding:30px 0}
+.lb,.modal{position:fixed;inset:0;z-index:50;background:#030818ea;backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:24px;animation:fade .3s}
+.lb .box{width:min(900px,100%);max-height:84vh;border-radius:20px;overflow:hidden;border:1px solid var(--line);animation:rise .4s both;aspect-ratio:16/10;background:#0a1636}
+.lb .box img{width:100%;height:100%;object-fit:contain}
+.lb .x{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:22px;font-size:2rem;background:none;border:0;color:#fff;cursor:pointer}
+.plus{position:fixed;right:22px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:40;width:62px;height:62px;border-radius:50%;border:0;font-size:2rem;color:#fff;background:linear-gradient(135deg,#2457ff,#7c5cff);cursor:pointer;box-shadow:0 12px 40px -8px #4d8dffcc;transition:transform .3s;animation:pulse 2.2s infinite}
+.plus:hover{transform:rotate(90deg) scale(1.1)}
+.panel{width:min(520px,100%);max-height:90vh;overflow:auto;background:#0b1a42;border:1px solid var(--line);border-radius:22px;padding:26px;animation:rise .4s both}
+.panel h3{font-size:1.4rem;margin-bottom:18px}.panel label{display:block;color:var(--mut);font-size:.82rem;margin:16px 0 8px;letter-spacing:.08em;text-transform:uppercase}
+.panel input[type=text]{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#07122e;color:var(--tx);font-family:inherit}
+.drop{display:block;text-align:center;padding:26px;border:2px dashed var(--line);border-radius:16px;color:var(--mut);cursor:pointer;transition:.25s}.drop:hover{border-color:var(--a);color:var(--tx)}
+.drop input{display:none}
+.row2{display:flex;gap:10px;margin-top:22px}.row2 .cta{flex:1;margin:0;animation:none;padding:14px}
+.ghost{flex:0 0 auto;padding:14px 20px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--tx);cursor:pointer}
+.msg{margin-top:14px;font-size:.9rem;color:#9fe0b4}.msg.err{color:#ff8da0}
+.about{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.ava{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;font-size:3.6rem;font-weight:700;background:linear-gradient(135deg,#2457ff,#7c5cff);box-shadow:0 0 0 8px #4d8dff22,0 0 60px #4d8dff55;margin-bottom:22px}
+.about p{color:var(--mut);line-height:1.75}.rows{display:grid;gap:14px}
+.row{display:flex;align-items:center;gap:16px;padding:20px;border-radius:18px;background:#0d1b42cc;border:1px solid var(--line);color:var(--tx);text-decoration:none;transition:.3s;animation:rise .7s both}
+.row:nth-child(2){animation-delay:.12s}.row:hover{border-color:var(--a);transform:translateX(8px);background:#12275e}
+.row .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#4d8dff22;color:var(--a);font-weight:700}
+.row small{display:block;color:var(--mut);margin-bottom:3px}
+.row em{margin-left:auto;font-style:normal;color:var(--mut);font-size:.8rem;border:1px solid var(--line);padding:5px 10px;border-radius:99px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="orb o1"></div><div class="orb o2"></div><div class="grid"></div>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script>
+const h = React.createElement;
+const { useState, useEffect, useRef } = React;
+
+// ====== SHU YERNI O'ZGARTIRING ======
+const NAME = "Roziboy";
+const TG = "roziboy02";
+const PHONE = "+998 77 321 82 79";
+const ROLES = ["Web Dizayner","Grafik Dizayner","UI / UX Dizayner"];
+const CATS = {
+  graphic: ["Logotip","Visitka","Instagram post","Banner","Brend"],
+  web: ["Landing page","Onlayn do'kon","UI/UX","Admin panel"]
+};
+const TITLES = {graphic:"Graphic Design", web:"Web-Design"};
+// =====================================
+
+const hues = [[220,265],[200,240],[260,300],[190,225],[235,280],[210,250]];
+function Art({w,i}){
+  if(w.url) return h("img",{src:w.url,alt:w.t||"",loading:"lazy"});
+  const [a,b]=hues[i%hues.length];
+  return h("div",{className:"art",style:{background:`radial-gradient(circle at ${20+i*12}% 20%,hsl(${a} 90% 60%),transparent 55%),linear-gradient(135deg,hsl(${a} 70% 22%),hsl(${b} 70% 30%))`}},w.t);
+}
+
+function Net(){
+  const r=useRef();
+  useEffect(()=>{
+    const c=r.current,x=c.getContext("2d");let w,ht,P=[],m={x:-999,y:-999},id;
+    const fit=()=>{w=c.width=innerWidth;ht=c.height=innerHeight;P=Array.from({length:Math.min(90,w/14|0)},()=>({x:Math.random()*w,y:Math.random()*ht,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}))};
+    const mv=e=>{m.x=e.clientX;m.y=e.clientY};
+    fit();addEventListener("resize",fit);addEventListener("mousemove",mv);
+    const loop=()=>{
+      x.clearRect(0,0,w,ht);
+      P.forEach((p,i)=>{
+        p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>ht)p.vy*=-1;
+        const dx=p.x-m.x,dy=p.y-m.y,d=Math.hypot(dx,dy);if(d<140){p.x+=dx/d*1.6;p.y+=dy/d*1.6}
+        x.fillStyle="#7fb0ff";x.beginPath();x.arc(p.x,p.y,1.6,0,7);x.fill();
+        for(let j=i+1;j<P.length;j++){const q=P[j],e=Math.hypot(p.x-q.x,p.y-q.y);
+          if(e<120){x.strokeStyle=`rgba(90,140,255,${.35*(1-e/120)})`;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}
+      });
+      id=requestAnimationFrame(loop);
+    };
+    loop();
+    return()=>{cancelAnimationFrame(id);removeEventListener("resize",fit);removeEventListener("mousemove",mv)};
+  },[]);
+  return h("canvas",{ref:r,style:{position:"fixed",inset:0,zIndex:1,pointerEvents:"none"}});
+}
+
+function Welcome({go}){
+  const [k,setK]=useState(0);
+  const [wipe,setWipe]=useState(false);
+  useEffect(()=>{const t=setInterval(()=>setK(v=>v+1),2400);return()=>clearInterval(t)},[]);
+  const enter=()=>{setWipe(true);setTimeout(()=>go("home"),650)};
+  const mag=e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.18}px,${(e.clientY-r.top-r.height/2)*.28}px) scale(1.05)`};
+  return h("div",{className:"welcome"},
+    h("div",{className:"ring"}),h("div",{className:"ring r2"}),
+    h("div",{className:"hi"},"Xush kelibsiz"),
+    h("div",{className:"big"},[...NAME].map((c,i)=>h("span",{key:i,style:{animationDelay:`${.3+i*.1}s,0s`}},c))),
+    h("div",{className:"roles"},h("b",{key:k},ROLES[k%ROLES.length])),
+    h("button",{className:"cta",onClick:enter,onMouseMove:mag,onMouseLeave:e=>e.currentTarget.style.transform=""},"Portfolioni ko'rish →"),
+    h("div",{className:"scroll"},"SCROLL"),
+    wipe&&h("div",{className:"curtain"}));
+}
+
+function Home({go}){
+  const items=[["01","Graphic Design","Logotip, visitka, post va brend ishlar","graphic"],["02","Web-Design","Saytlar va interfeys dizaynlari","web"],["03","About","Men va aloqa ma'lumotlari","about"]];
+  return h("div",{className:"page"},
+    h("div",{className:"top"},h("div",{className:"logo"},NAME,h("i",null,"."))),
+    h("h1",{className:"t"},"Men yaratadigan narsalar"),
+    h("p",{className:"sub"},"Bo'limni tanlang va ishlarim bilan tanishing."),
+    h("div",{className:"menu"},items.map(([n,t,d,k])=>
+      h("button",{key:k,className:"tile",onClick:()=>go(k)},h("span",{className:"ar"},"↗"),h("span",{className:"n"},n),h("div",null,h("h2",null,t),h("p",null,d))))));
+}
+
+function Gallery({kind,go,works,admin,onDel}){
+  const [open,setOpen]=useState(null);
+  const [cat,setCat]=useState("");
+  useEffect(()=>{const f=e=>e.key==="Escape"&&setOpen(null);addEventListener("keydown",f);return()=>removeEventListener("keydown",f)},[]);
+  const mine=works.filter(w=>w.sec===kind);
+  // admin hali rasm qo'shmagan bo'lsa, demo kartalar ko'rsatiladi
+  const list=(mine.length?mine:CATS[kind].map(c=>({t:c,cat:c,demo:1}))).filter(w=>!cat||w.cat===cat);
+  const tilt=e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*10+"deg");e.currentTarget.style.setProperty("--rx",((e.clientY-r.top)/r.height-.5)*-10+"deg")};
+  const reset=e=>{e.currentTarget.style.setProperty("--rx","0deg");e.currentTarget.style.setProperty("--ry","0deg")};
+  return h("div",{className:"page"},
+    h("div",{className:"top"},h("div",{className:"logo"},NAME,h("i",null,".")),h("button",{className:"back",onClick:()=>go("home")},"← Orqaga")),
+    h("h1",{className:"t"},TITLES[kind]),
+    h("p",{className:"sub"},"Turini tanlang yoki rasmni bosib kattalashtiring."),
+    h("div",{className:"chips"},["",...CATS[kind]].map(c=>h("button",{key:c,className:"chip"+(cat===c?" on":""),onClick:()=>setCat(c)},c||"Hammasi"))),
+    list.length?h("div",{className:"gal"},list.map((w,i)=>
+      h("div",{key:w.id||i,className:"work",style:{animationDelay:`${i*.07}s`},onClick:()=>setOpen(i),onMouseMove:tilt,onMouseLeave:reset},
+        admin&&!w.demo&&h("button",{className:"del",title:"O'chirish",onClick:e=>{e.stopPropagation();if(confirm("Rasm o'chirilsinmi?"))onDel(w)}},"×"),
+        h(Art,{w,i}),h("div",{className:"cap"},h("b",null,w.t||w.cat),h("small",null,w.cat))))):h("div",{className:"empty"},"Bu turda hali ish yo'q."),
+    open!==null&&list[open]&&h("div",{className:"lb",onClick:()=>setOpen(null)},h("button",{className:"x"},"×"),h("div",{className:"box",onClick:e=>e.stopPropagation()},h(Art,{w:list[open],i:open}))));
+}
+
+function AddModal({onClose,onSave}){
+  const [sec,setSec]=useState("graphic");
+  const [cat,setCat]=useState(CATS.graphic[0]);
+  const [t,setT]=useState("");
+  const [files,setFiles]=useState([]);
+  const [st,setSt]=useState({busy:false,m:"",err:false});
+  const pick=s=>{setSec(s);setCat(CATS[s][0])};
+  const save=async()=>{
+    if(!files.length){setSt({busy:false,m:"Avval rasm tanlang",err:true});return}
+    setSt({busy:true,m:"Yuklanmoqda...",err:false});
+    try{await onSave({sec,cat,t,files});setSt({busy:false,m:"Qo'shildi ✓",err:false});setFiles([]);setT("")}
+    catch(e){setSt({busy:false,m:"Xatolik: "+((e&&e.message)||"yuklab bo'lmadi"),err:true})}
+  };
+  return h("div",{className:"modal",onClick:onClose},h("div",{className:"panel",onClick:e=>e.stopPropagation()},
+    h("h3",null,"Yangi ish qo'shish"),
+    h("label",null,"Bo'lim"),
+    h("div",{className:"chips",style:{marginBottom:0}},Object.keys(CATS).map(s=>h("button",{key:s,className:"chip"+(sec===s?" on":""),onClick:()=>pick(s)},TITLES[s]))),
+    h("label",null,"Turi"),
+    h("div",{className:"chips",style:{marginBottom:0}},CATS[sec].map(c=>h("button",{key:c,className:"chip"+(cat===c?" on":""),onClick:()=>setCat(c)},c))),
+    h("label",null,"Nomi (ixtiyoriy)"),
+    h("input",{type:"text",value:t,onChange:e=>setT(e.target.value),placeholder:"Masalan: Kafe logotipi"}),
+    h("label",null,"Rasmlar"),
+    h("label",{className:"drop",style:{margin:0,textTransform:"none",letterSpacing:0,fontSize:"1rem"}},
+      files.length?files.length+" ta rasm tanlandi":"+ Rasm tanlash (bir nechta mumkin)",
+      h("input",{type:"file",accept:"image/*",multiple:true,onChange:e=>setFiles([...e.target.files])})),
+    st.m&&h("div",{className:"msg"+(st.err?" err":"")},st.m),
+    h("div",{className:"row2"},h("button",{className:"ghost",onClick:onClose},"Yopish"),h("button",{className:"cta",disabled:st.busy,onClick:save},st.busy?"Yuklanmoqda...":"Saqlash"))));
+}
+
+function About({go}){
+  const [ok,setOk]=useState(false);
+  const copy=()=>{try{navigator.clipboard.writeText(PHONE).then(()=>{setOk(true);setTimeout(()=>setOk(false),1600)})}catch(e){}};
+  return h("div",{className:"page"},
+    h("div",{className:"top"},h("div",{className:"logo"},NAME,h("i",null,".")),h("button",{className:"back",onClick:()=>go("home")},"← Orqaga")),
+    h("div",{className:"about"},
+      h("div",null,h("div",{className:"ava"},NAME[0]),h("h1",{className:"t"},"About"),
+        h("p",null,"Men web va grafik dizaynerman. G'oyani chiroyli, qulay va esda qoladigan ko'rinishga aylantiraman. Loyiha uchun yozing — birga yaxshi natija qilamiz.")),
+      h("div",{className:"rows"},
+        h("a",{className:"row",href:"https://t.me/"+TG,target:"_blank",rel:"noopener"},h("div",{className:"ic"},"TG"),h("div",null,h("small",null,"Telegram"),"@"+TG),h("em",null,"Ochish")),
+        h("div",{className:"row"},h("div",{className:"ic"},"☎"),h("div",null,h("small",null,"Telefon"),h("a",{href:"tel:"+PHONE.replace(/\s/g,""),style:{color:"inherit",textDecoration:"none"}},PHONE)),h("em",{onClick:copy},ok?"Nusxalandi ✓":"Nusxalash")))));
+}
+
+function App(){
+  const [s,setS]=useState("welcome");
+  const [m,setM]=useState({x:-400,y:-400});
+  const [works,setWorks]=useState([]);
+  const [admin,setAdmin]=useState(false);
+  const [add,setAdd]=useState(false);
+  const db=useRef(null),as=useRef(null);
+  useEffect(()=>{
+    const f=e=>setM({x:e.clientX,y:e.clientY});addEventListener("mousemove",f);
+    let off=()=>{};
+    (async()=>{
+      if(!window.claude){try{const r=await fetch("works.json");setWorks(await r.json())}catch(e){}return}
+      try{as.current=await claude.use("assets");setAdmin(!!as.current)}catch(e){}
+      try{db.current=await claude.use("db");
+        if(db.current)off=db.current.collection("works").onSnapshot(q=>setWorks(q.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.ts||0)-(a.ts||0))),()=>{});
+      }catch(e){}
+    })();
+    return()=>{removeEventListener("mousemove",f);off()};
+  },[]);
+  const go=k=>{setS(k);scrollTo({top:0,behavior:"smooth"})};
+  const save=async({sec,cat,t,files})=>{
+    if(!db.current||!as.current)throw new Error("saqlash mavjud emas");
+    for(const f of files){
+      const a=await as.current.upload(f);
+      await db.current.collection("works").add({sec,cat,t,aid:a.id,url:a.url,ts:Date.now()});
+    }
+  };
+  const del=async w=>{try{await db.current.doc("works/"+w.id).delete();if(w.aid)await as.current.delete(w.aid)}catch(e){}};
+  return h(React.Fragment,null,
+    h("div",{className:"glow",style:{left:m.x,top:m.y}}),h(Net),
+    h("div",{className:"wrap",key:s},
+      s==="welcome"?h(Welcome,{go}):s==="home"?h(Home,{go}):s==="about"?h(About,{go}):h(Gallery,{kind:s,go,works,admin,onDel:del})),
+    admin&&s!=="welcome"&&h("button",{className:"plus",title:"Rasm qo'shish",onClick:()=>setAdd(true)},"+"),
+    add&&h(AddModal,{onClose:()=>setAdd(false),onSave:save}));
+}
+ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+</script>
+</body>
+</html>
